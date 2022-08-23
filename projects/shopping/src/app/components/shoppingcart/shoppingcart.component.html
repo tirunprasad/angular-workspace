@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <header class="bg-danger text-white text-center p-2">
+        <h2>
+            <span class="bi bi-cart2"></span> Shopping API
+        </h2>
+    </header>
+    <section class="mt-2">
+        <div class="row">
+            <div class="col-2">
+                <div class="mt-2">
+                    <label class="form-label">Select a category</label>
+                    <div>
+                        <select (change)="onCategoryChange($event)" class="form-select">
+                            <option *ngFor="let category of categories" [value]="category">
+                                {{category|uppercase}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="d-flex flex-wrap overflow-auto" style="height: 700px;">
+                    <div class="card mt-5 p-2" *ngFor="let item of products" style="width:250px">
+                        <img [src]="item.image" height="200" class="card-img-top">
+                        <div class="card-header" style="height:150px">
+                            <p class="fw-bold">{{item.title}}</p>
+                        </div>
+                        <div class="card-body">
+                            <p>{{item.price}}</p>
+                            <p><span class="bi bi-star-fill text-success"></span>{{item.rating.rate}} [<span class="text-muted">{{item.rating.count}}</span></p>
+                        </div>
+                        <div class="card-footer">
+                            <button (click)="onAddToCartClick(item.id)" class="btn btn-danger w-100">
+                                <span class="bi bi-cart4"></span>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+               <div class="mt-2">
+                <button (click)="onToggleCart()" class="btn btn-warning w-100">
+                    <span class="bi bi-cart4"></span>
+                    ({{cartItemsCount}}) Your cart items
+                </button>
+               </div>
+               <div class="mt-2">
+                    <table *ngIf="isCartVisible" class="table table-hover caption-top">
+                        <caption>Your cart preview</caption>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Preview</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of cartItems">
+                                <td>{{item.title}}</td>
+                                <td><img [src]="item.image" width="40" height="40"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+               </div>
+            </div>
+        </div>
+    </section>
+</div>

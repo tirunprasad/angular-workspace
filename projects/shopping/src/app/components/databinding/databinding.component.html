@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-4">
+            <h3>Register Product</h3>
+            <dl>
+                <dt>Name</dt>
+                <dd><input type="text" name="Name" ngModel #Name="ngModel" class="form-control"></dd>
+                <dt>Price</dt>
+                <dd><input type="text" name="Price" ngModel #Price="ngModel" class="form-control"></dd>
+                <dt>Shipped To</dt>
+                <dd>
+                    <select   name="City" ngModel #City="ngModel" class="form-select">
+                        <option>HYD</option>
+                        <option>VIZAG</option>
+                        <option>BANGLORE</option>
+                    </select>
+                </dd>
+                <dt>Stock</dt>
+                <dd name="Stock" ngModel #Stock="ngModel" class="form-switch">
+                    <input type="checkbox"  class="form-check-input"> Available
+                </dd>
+
+            </dl>
+            <button  class="btn btn-primary w-100">Update Product</button>
+        </div>
+        <div class="col-8">
+            <h3>Product Details</h3>
+            <dt>Name</dt>
+            <dd>{{Name.value}}</dd>
+            <dt>Price</dt>
+            <dd>{{Price.value}}</dd>
+            <dt>Stock</dt>
+            <dd>{{Stock.value}}</dd>
+            <dt>Shipped To</dt>
+            <dd>{{City.value}}</dd>
+        </div>
+    </div>
+</div>

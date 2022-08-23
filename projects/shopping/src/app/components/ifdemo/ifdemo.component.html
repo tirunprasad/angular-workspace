@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <h2>Product Details</h2>
+  <dl>
+      <dt>Name</dt>
+      <dd>{{product.Name}}</dd>
+      <dt>Price</dt>
+      <dd>{{product.Price}}</dd>
+      <dt>Preview <span class="form-switch"><input name="toggle" ngModel #toggle="ngModel" class="form-check-input" type="checkbox"></span>Description </dt>
+      <dd class="mt-4">
+          <div *ngIf="toggle.value; then description else preview "></div>
+          <ng-template #description>
+              <h5>Product Description</h5>
+              <p>It is a handmade saree which is suitable to any women</p>
+          </ng-template>
+          <ng-template #preview>
+              <img [src]="product.Photo" widt="200" height="400">
+          </ng-template>
+      </dd>
+
+  </dl>
+</div>

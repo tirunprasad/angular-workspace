@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <h2>Content Projection <button (click)="onButtonToggle()">Toggle Then</button></h2>
+    <div *ngIf="isVisible; then thenBlock else elseBlock"></div>
+    <ng-template #firstBlock>
+        FirstBlock
+    </ng-template>
+    <ng-template #secondBlock>
+        SecondBlock
+    </ng-template>
+    <ng-template #elseBlock>
+        ElseBlock
+    </ng-template>
+</div>

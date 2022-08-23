@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height: 400px;
+}
+.container div{
+    border: 2px solid red;
+    padding: 10px;
+    border-radius: 20px;
+}

@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <h2>Product Details</h2>
+    <dl>
+        <dt>Name</dt>
+        <dd>{{Product.Name}}</dd>
+        <dt>Price</dt>
+        <dd [innerHTML]="Product.Price"></dd>
+        <dd><input type="text" [value]="Product.Price"></dd>
+        <dt>Stock Status</dt>
+        <dd>{{(Product.Stock==true)?"Available":"Out Of Stock"}}</dd>
+    </dl>
+
+</div>

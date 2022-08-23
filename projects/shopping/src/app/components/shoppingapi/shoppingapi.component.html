@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <h2>Product Details <button (click)="onPreviousClick()" class="btn btn-success me-2">&lt;</button><button (click)="onNextClick()" class="btn btn-success">&gt;</button></h2>
+    <dl class="w-50">
+        <dt>Title</dt>
+        <dd>{{product.title}}</dd>
+        <dt>Price</dt>
+        <dd>{{product.price}}</dd>
+        <dt><button (click)="onToggle()" class="btn btn-primary"><span class="bi bi-eye"></span> {{buttonText}} </button></dt>
+        <dd class="mt-4">
+            <div *ngIf="true; then thenBlock"></div>
+            <ng-template #preview>
+                <h3>Preview</h3>
+                <img [src]="product.image" width="200" height="200">
+
+            </ng-template>
+            <ng-template #description>
+                <h3>Description</h3>
+                <p>{{product.description}}</p>
+            </ng-template>
+        </dd>
+        
+    </dl>
+</div>
